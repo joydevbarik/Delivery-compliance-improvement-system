@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tata Steel Delivery Compliance Portal - Project Dissertation Report</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Prism JS for Code Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  
+  <style>
+    :root {
+      --primary: #0f172a;       /* Slate 900 */
+      --primary-light: #1e293b; /* Slate 800 */
+      --secondary: #2563eb;     /* Tata Blue */
+      --accent: #d97706;        /* Amber 600 */
+      --text: #334155;          /* Slate 700 */
+      --text-dark: #0f172a;     /* Slate 900 */
+      --bg: #f8fafc;            /* Slate 50 */
+      --card-bg: #ffffff;
+      --border: #e2e8f0;        /* Slate 200 */
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+      --info: #3b82f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    /* Page Container representing standard academic report width */
+    .report-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 70px 80px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-top: 1.8em;
+      margin-bottom: 0.6em;
+      line-height: 1.3;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.3em;
+      margin-top: 2.2em;
+    }
+
+    h2 {
+      font-size: 1.6em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.2em;
+      margin-top: 1.8em;
+    }
+
+    h3 {
+      font-size: 1.3em;
+      margin-top: 1.5em;
+    }
+
+    p {
+      margin-bottom: 1.2em;
+      font-size: 1.05em;
+      text-align: justify;
+    }
+
+    a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul, ol {
+      margin-bottom: 1.2em;
+      padding-left: 2em;
+    }
+
+    li {
+      margin-bottom: 0.4em;
+      font-size: 1.05em;
+    }
+
+    /* Cover Page Custom Layout */
+    .cover-page {
+      text-align: center;
+      padding: 60px 20px;
+      min-height: 95vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 4px double var(--primary);
+      margin-bottom: 60px;
+      background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.03), transparent);
+    }
+
+    .cover-header {
+      font-size: 1.8em;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--primary);
+      text-transform: uppercase;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .cover-title {
+      margin: 60px 0 20px 0;
+      font-size: 2.8em;
+      font-weight: 800;
+      color: var(--primary-light);
+      line-height: 1.2;
+      text-transform: uppercase;
+      font-family: 'Outfit', sans-serif;
+      padding: 0 10px;
+    }
+
+    .cover-subtitle {
+      font-size: 1.3em;
+      color: var(--secondary);
+      margin-bottom: 50px;
+      font-weight: 500;
+    }
+
+    .cover-description {
+      font-size: 1.1em;
+      margin: 40px auto;
+      max-width: 650px;
+      line-height: 1.6;
+      color: #64748b;
+    }
+
+    .cover-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 80px 0;
+      text-align: left;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 30px;
+      background-color: var(--bg);
+    }
+
+    .meta-group h4 {
+      margin-top: 0;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #64748b;
+      margin-bottom: 5px;
+    }
+
+    .meta-group p {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin: 0;
+      text-align: left;
+    }
+
+    .cover-footer {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    /* Certificate / Declaration custom layout */
+    .certificate-section {
+      padding: 40px 0;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      margin-top: 80px;
+    }
+
+    .signature-line {
+      border-top: 1px solid #94a3b8;
+      text-align: center;
+      padding-top: 10px;
+      font-weight: 600;
+      font-size: 1em;
+      color: var(--text-dark);
+    }
+
+    /* Tables styling */
+    .table-container {
+      overflow-x: auto;
+      margin: 2em 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95em;
+    }
+
+    th {
+      background-color: var(--primary-light);
+      color: #ffffff;
+      font-weight: 600;
+      padding: 14px 18px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    td {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dark);
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    tr:hover td {
+      background-color: #f1f5f9;
+    }
+
+    /* Alerts and Callouts */
+    .alert {
+      display: flex;
+      gap: 18px;
+      padding: 20px;
+      border-left: 5px solid;
+      border-radius: 6px;
+      margin: 2em 0;
+      background-color: #f8fafc;
+      font-size: 0.98em;
+    }
+
+    .alert-note {
+      border-left-color: var(--info);
+      background-color: rgba(59, 130, 246, 0.03);
+    }
+
+    .alert-tip {
+      border-left-color: var(--success);
+      background-color: rgba(16, 185, 129, 0.03);
+    }
+
+    .alert-important {
+      border-left-color: var(--warning);
+      background-color: rgba(245, 158, 11, 0.03);
+    }
+
+    .alert-warning {
+      border-left-color: var(--accent);
+      background-color: rgba(217, 121, 6, 0.03);
+    }
+
+    .alert-caution {
+      border-left-color: var(--danger);
+      background-color: rgba(239, 68, 68, 0.03);
+    }
+
+    .alert-icon {
+      font-size: 1.4em;
+      margin-top: 2px;
+    }
+
+    .alert-note .alert-icon { color: var(--info); }
+    .alert-tip .alert-icon { color: var(--success); }
+    .alert-important .alert-icon { color: var(--warning); }
+    .alert-warning .alert-icon { color: var(--accent); }
+    .alert-caution .alert-icon { color: var(--danger); }
+
+    .alert-content {
+      flex: 1;
+    }
+
+    /* Fenced Code Blocks */
+    pre {
+      background-color: #0f172a;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 2em 0;
+      border: 1px solid #1e293b;
+    }
+
+    code {
+      font-family: 'Fira Code', 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #f8fafc;
+    }
+
+    p code, li code {
+      background-color: #f1f5f9;
+      color: var(--danger);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      border: 1px solid var(--border);
+    }
+
+    /* Mermaid diagrams custom style */
+    .mermaid {
+      background-color: #ffffff !important;
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      margin: 2em 0;
+    }
+
+    /* Pagination / Chapters styles for Print mode */
+    .chapter-title {
+      page-break-before: always;
+      margin-top: 100px;
+    }
+
+    .chapter-title:first-of-type {
+      page-break-before: avoid;
+      margin-top: 0;
+    }
+
+    @media print {
+      body {
+        background-color: #ffffff;
+        padding: 0;
+        font-size: 11pt;
+      }
+
+      .report-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .cover-page {
+        border: 2px solid var(--primary);
+        min-height: 100vh;
+        page-break-after: always;
+      }
+
+      .chapter-title {
+        page-break-before: always !important;
+        margin-top: 0 !important;
+        padding-top: 30px;
+      }
+
+      pre, .table-container, .alert {
+        page-break-inside: avoid;
+      }
+
+      a {
+        color: #000;
+        text-decoration: underline;
+      }
+    }
+
+    /* Floating navigation for screen layout */
+    .screen-nav {
+      position: fixed;
+      top: 40px;
+      left: 30px;
+      width: 250px;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    @media (max-width: 1400px) {
+      .screen-nav {
+        display: none;
+      }
+    }
+
+    .screen-nav h3 {
+      font-size: 1.1em;
+      margin-top: 0;
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .screen-nav ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    .screen-nav li {
+      margin-bottom: 8px;
+      font-size: 0.9em;
+    }
+
+    .screen-nav a {
+      color: var(--text);
+      display: block;
+    }
+
+    .screen-nav a:hover {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+  </style>
+
+  <!-- MathJax for rendering LaTeX formulas -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Mermaid.js for drawing diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true }
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Floating Screen Nav (visible on wider screens only) -->
+  <div class="screen-nav">
+    <h3><i class="fa fa-list-ul"></i> Quick Navigation</h3>
+    <ul>
+      <li><a href="#cover-page"><i class="fa-solid fa-file-invoice"></i> Cover Page</a></li>
+      <li><a href="#candidate-s-declaration"><i class="fa-solid fa-signature"></i> Declaration</a></li>
+      <li><a href="#supervisor-s-certificate"><i class="fa-solid fa-stamp"></i> Certificate</a></li>
+      <li><a href="#acknowledgements"><i class="fa-solid fa-hands-praying"></i> Acknowledgements</a></li>
+      <li><a href="#abstract"><i class="fa-solid fa-align-left"></i> Abstract</a></li>
+      <li><a href="#table-of-contents"><i class="fa-solid fa-list-ol"></i> Table of Contents</a></li>
+      <li><a href="#chapter-1-introduction"><i class="fa-solid fa-book-open"></i> Ch 1: Introduction</a></li>
+      <li><a href="#chapter-2-literature-survey-feasibility-analysis"><i class="fa-solid fa-graduation-cap"></i> Ch 2: Literature Review</a></li>
+      <li><a href="#chapter-3-system-requirements-analysis"><i class="fa-solid fa-clipboard-list"></i> Ch 3: Requirements</a></li>
+      <li><a href="#chapter-4-architecture-design"><i class="fa-solid fa-project-diagram"></i> Ch 4: Design & Arch</a></li>
+      <li><a href="#chapter-5-algorithmic-logic-mathematical-modelling"><i class="fa-solid fa-calculator"></i> Ch 5: Algorithmic Logic</a></li>
+      <li><a href="#chapter-6-technical-implementation-details"><i class="fa-solid fa-code"></i> Ch 6: Implementation</a></li>
+      <li><a href="#chapter-7-verification-test-cases"><i class="fa-solid fa-vial"></i> Ch 7: Testing & QA</a></li>
+      <li><a href="#chapter-8-screen-walkthrough-user-operations-manual"><i class="fa-solid fa-desktop"></i> Ch 8: User Manual</a></li>
+      <li><a href="#chapter-9-conclusion-limitations-future-work"><i class="fa-solid fa-flag-checkered"></i> Ch 9: Conclusion</a></li>
+      <li><a href="#references-bibliography"><i class="fa-solid fa-bookmark"></i> References</a></li>
+    </ul>
+  </div>
+
+  <div class="report-container">
+    <div id="cover-page" class="cover-page">
+      <div class="cover-header">
+        Tata Steel Limited &mdash; Operations Technology Division
+      </div>
+      <div>
+        <div class="cover-title">Automated Supply Chain Delivery Compliance Improvement System</div>
+        <div class="cover-subtitle">A MERN Stack Enterprise Portal for Tata Steel Inventory Optimization</div>
+        <div class="cover-description">
+          A Project Dissertation submitted in partial fulfillment of the requirements for the degree of 
+          <strong>Bachelor of Technology in Computer Science and Engineering</strong>
+        </div>
+      </div>
+      <div>
+        <div class="cover-meta">
+          <div class="meta-group">
+            <h4>Submitted By</h4>
+            <p>OPERATOR / STUDENT ID: tata_operator / operator1</p>
+            <p>DEPARTMENT: Computer Science & Engineering</p>
+          </div>
+          <div class="meta-group">
+            <h4>Under Supervision Of</h4>
+            <p>DR. ANANYA ROY</p>
+            <p>Associate Professor, Department of CSE</p>
+          </div>
+        </div>
+        <div class="cover-footer">
+          ACADEMIC YEAR: 2025 - 2026
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN BODY CONTENT -->
+    <h1 id="candidate-s-declaration" class="chapter-title">Candidate's Declaration</h1>
+<p>I hereby declare that the project report entitled <strong>"Automated Supply Chain Delivery Compliance Improvement System"</strong> submitted to the Department of Computer Science & Engineering is an authentic record of my own work carried out under the guidance of <strong>Dr. Ananya Roy</strong>, Associate Professor, Department of Computer Science & Engineering.</p>
+<p>The matter embodied in this project report has not been submitted by me or anyone else for the award of any other degree or diploma.</p>
+<p><div class="signature-grid"></p>
+<p>  <div class="signature-line"></p>
+<p>    Signature of the Candidate</p>
+<p>  </div></p>
+<p>  <div class="signature-line"></p>
+<p>    Date: August 04, 2026</p>
+<p>  </div></p>
+<p></div></p>
+<h1 id="supervisor-s-certificate" class="chapter-title">Supervisor's Certificate</h1>
+<p>This is to certify that the project report entitled <strong>"Automated Supply Chain Delivery Compliance Improvement System"</strong> is a bonafide record of the work carried out by the student under my supervision and guidance. </p>
+<p>In my opinion, the report has reached the standard fulfilling the requirements of the regulations relating to the degree of Bachelor of Technology in Computer Science & Engineering.</p>
+<p><div class="signature-grid"></p>
+<p>  <div class="signature-line"></p>
+<p>    Dr. Ananya Roy (Supervisor)</p>
+<p>  </div></p>
+<p>  <div class="signature-line"></p>
+<p>    Head of Department / Coordinator</p>
+<p>  </div></p>
+<p></div></p>
+<h1 id="acknowledgements" class="chapter-title">Acknowledgements</h1>
+<p>First and foremost, I would like to express my sincere gratitude to my supervisor, <strong>Dr. Ananya Roy</strong>, for their invaluable guidance, constant encouragement, and constructive feedback throughout the course of this project. Their expertise and insights have been instrumental in shaping the architecture and implementation of this system.</p>
+<p>I am also thankful to the Department of Computer Science & Engineering and the management of <strong>Tata Steel Limited</strong> for providing the operational context, problem guidelines, and technical parameters that formed the basis of this real-world industrial compliance system.</p>
+<p>Finally, I would like to thank my peers, family, and friends for their continuous support and motivation which kept me focused and inspired during the development of this dissertation.</p>
+<h1 id="abstract" class="chapter-title">Abstract</h1>
+<p>In heavy manufacturing industries like steelmaking, delivery compliance is a critical KPI that directly influences customer retention, supply chain overheads, and inventory logistics. Inefficient matching between customer sales orders and yard inventory levels leads to stock discrepancies, delivery delays, and lack of accountability between plant operators and planners. </p>
+<p>This project presents the design, architecture, and implementation of the <strong>Automated Supply Chain Delivery Compliance Improvement System</strong>, a web-based enterprise portal developed specifically for the steel operations division. Engineered on the MERN (MongoDB, Express.js, React, Node.js) stack, the system integrates a live stock validation calculation engine that automatically determines delivery compliance during order placement. The engine checks inventory depth, calculates complied versus delayed quantities, estimates expected delivery dates using dynamic shortage lead-time caps, and triggers immediate email notifications to operators using an integrated Nodemailer SMTP simulation service. </p>
+<p>To bridge communication gaps in high-pressure plant environments, the system features a real-time conversational <strong>Help Desk</strong> ticket management portal that allows operators and planners to collaborate on inventory shortfalls and logistics. Security is enforced through JWT authentication and bcrypt password cryptography, while the frontend offers an outfit-typography driven, responsive user interface supporting a contrast-compliant theme switcher (light/dark mode). The system has been validated through rigorous test suite scenarios, demonstrating high performance, microsecond calculation latency, and high robustness.</p>
+<h1 id="table-of-contents" class="chapter-title">Table of Contents</h1>
+<ul>
+  <li><strong>Chapter 1: Introduction</strong></li>
+  <li>1.1 Project Overview & Background</li>
+  <li>1.2 Supply Chain Context: Tata Steel Operations</li>
+  <li>1.3 Problem Statement</li>
+  <li>1.4 Objectives & Goal Realization</li>
+  <li>1.5 System Scope & Operational Boundaries</li>
+  <li>1.6 User Persona & Stakeholder Role Definitions</li>
+  <li>1.7 Organization of the Dissertation</li>
+  <li><strong>Chapter 2: Literature Survey & Feasibility Analysis</strong></li>
+  <li>2.1 Evolution of Digital Supply Chain Management (SCM)</li>
+  <li>2.2 Challenges in Steel SCM and Yard Logistics</li>
+  <li>2.3 Evaluation of Modern SCM Frameworks</li>
+  <li>2.4 Technology Stack Selection Rationale</li>
+  <li>2.5 Feasibility Study (Technical, Economic, Operational)</li>
+  <li><strong>Chapter 3: System Requirements Analysis</strong></li>
+  <li>3.1 Functional Requirements Specification</li>
+  <li>3.2 Non-Functional Requirements Specification</li>
+  <li>3.3 Hardware Requirements</li>
+  <li>3.4 Software Requirements</li>
+  <li>3.5 Use Case Diagram & System Actor Mapping</li>
+  <li><strong>Chapter 4: Architecture & Design</strong></li>
+  <li>4.1 System Architectural Topology</li>
+  <li>4.2 Data Flow Diagrams (DFD Level 0, 1, 2)</li>
+  <li>4.3 Database Schema Design & Entity Relationship Diagram (ERD)</li>
+  <li>4.4 Flowcharts & Sequence Diagrams</li>
+  <li><strong>Chapter 5: Algorithmic Logic & Mathematical Modelling</strong></li>
+  <li>5.1 Compliance Calculation Mathematical Equations</li>
+  <li>5.2 Lead Time Delivery Cap Calculations</li>
+  <li>5.3 Core Pseudocode & Algorithmic Design</li>
+  <li>5.4 Complexity Analysis</li>
+  <li><strong>Chapter 6: Technical Implementation Details</strong></li>
+  <li>6.1 Backend Controller & Router Breakdown</li>
+  <li>6.2 Frontend Component & State Management Structure</li>
+  <li>6.3 Nodemailer Configuration & Email Simulator Layer</li>
+  <li>6.4 Help Desk Messaging Thread Processing</li>
+  <li><strong>Chapter 7: Verification & Test Cases</strong></li>
+  <li>7.1 Testing Methodology</li>
+  <li>7.2 Detailed Test Suites & Cases (Table)</li>
+  <li>7.3 Security Audits & Role-Based Access Control Testing</li>
+  <li>7.4 UI Responsive Testing & Theme-Aware Verification</li>
+  <li><strong>Chapter 8: Screen Walkthrough & User Operations Manual</strong></li>
+  <li>8.1 Landing Page & Navigation</li>
+  <li>8.2 Login Console</li>
+  <li>8.3 Operational Dashboard</li>
+  <li>8.4 Sales Order Creation Console</li>
+  <li>8.5 Inventory Management Console</li>
+  <li>8.6 Delivery Compliance Audit Log</li>
+  <li>8.7 Interactive Help Desk Chat Interface</li>
+  <li><strong>Chapter 9: Conclusion, Limitations & Future Work</strong></li>
+  <li>9.1 Project Accomplishments</li>
+  <li>9.2 Limitations of the Current Prototype</li>
+  <li>9.3 Future Technical Roadmap</li>
+  <li><strong>References & Bibliography</strong></li>
+</ul>
+<p>---</p>
+<h1 id="chapter-1-introduction" class="chapter-title">Chapter 1: Introduction</h1>
+<h2 id="1-1-project-overview-background">1.1 Project Overview & Background</h2>
+<p>In the current era of industrial automation and supply chain optimization, heavy manufacturing firms face the persistent challenge of aligning production outputs with consumer demands. Steel manufacturing, characterized by high capital expenditures, diverse product catalogs (SKUs), and complex logistical pipelines, requires robust systems to monitor and optimize order fulfillment. Delivery compliance represents the percentage of orders delivered in full and on time, acting as a crucial barometer for supply chain health.</p>
+<p>This project introduces the <strong>Automated Supply Chain Delivery Compliance Improvement System</strong>, an enterprise-grade digital portal tailored for industrial operations. Designed to run as a web-based MERN stack application, it bridges the gap between order entry and physical inventory depth. By validating product availability in real-time, the system mitigates shipment delays, automates delivery scheduling, and fosters structured communication between operations staff and planners.</p>
+<h2 id="1-2-supply-chain-context-tata-steel-operations">1.2 Supply Chain Context: Tata Steel Operations</h2>
+<p>Tata Steel Limited, one of the world's leading steel manufacturing corporations, operates massive integrated steel plants producing hot-rolled (HR) coils, cold-rolled (CR) sheets, galvanized wires, and specialized steel bars. A typical plant consists of multiple yards storing thousands of tons of metal. The supply chain pipeline involves three major phases:</p>
+<ol>
+  <li><strong>Sales Order Registration</strong>: High-volume customer demand intake.</li>
+  <li><strong>Yard Inventory Allocation</strong>: Physical SKU availability checks.</li>
+  <li><strong>Logistical Dispatch & Auditing</strong>: Transport coordination and compliance calculation.</li>
+</ol>
+<p>Planners must ensure that every metric ton of steel ordered corresponds to available yard stock. Discrepancies between logged orders and actual inventory lead to missed SLA dates and customer dissatisfaction.</p>
+<h2 id="1-3-problem-statement">1.3 Problem Statement</h2>
+<p>Traditional steel supply chain mechanisms suffer from several systemic bottlenecks:</p>
+<ul>
+  <li><strong>Latent Stock Checks</strong>: Inventory levels are often updated in batch processing jobs (e.g., end-of-day ERP synchronization). This latency means operators register sales orders based on stale yard stock data, resulting in over-commitments.</li>
+  <li><strong>Manual Compliance Calculations</strong>: Planners manually cross-reference order sheets with yard reports to calculate delayed quantities and schedule deliveries. This process is error-prone and slow.</li>
+  <li><strong>Siloed Communication</strong>: When shortages occur, operators and planners communicate through fragmented channels (phone calls, spreadsheets, personal emails). There is no centralized log or ticket audit trail.</li>
+  <li><strong>Lack of Instant Confirmation</strong>: Operators do not receive immediate, formal records of order compliance calculations, delaying their ability to notify customers.</li>
+</ul>
+<h2 id="1-4-objectives-goal-realization">1.4 Objectives & Goal Realization</h2>
+<p>The core objectives of this system are:</p>
+<ol>
+  <li><strong>Real-Time Integration</strong>: Synchronize sales order entry with active database yard inventory checks.</li>
+  <li><strong>Algorithmic Automation</strong>: Implement a deterministic compliance calculation engine to calculate complied vs. delayed quantities instantly.</li>
+  <li><strong>Proactive Email Alerts</strong>: Automatically send detailed HTML compliance audit reports to the operator's registered email address upon order creation.</li>
+  <li><strong>Structured Collaboration</strong>: Provide an interactive Help Desk ticket system allowing participants to open threads, exchange replies, and update ticket statuses.</li>
+  <li><strong>Theme-Aware Accessibility</strong>: Deliver a fully responsive, modern UI supporting light/dark themes to ensure visibility in varied plant lighting conditions.</li>
+</ol>
+<h2 id="1-5-system-scope-operational-boundaries">1.5 System Scope & Operational Boundaries</h2>
+<p>The system is scoped as an <strong>Operational Intranet Portal</strong> designed for internal plant staff:</p>
+<ul>
+  <li><strong>In-Scope</strong>: User login and role-based actions, inventory stock lookups and adjustments, order registration, automatic compliance auditing, conversational ticket logs, and email dispatch.</li>
+  <li><strong>Out-of-Scope</strong>: Direct physical yard crane controls, actual courier shipping API integrations, and billing/financial transactions.</li>
+</ul>
+<h2 id="1-6-user-persona-stakeholder-role-definitions">1.6 User Persona & Stakeholder Role Definitions</h2>
+<p>The system identifies two primary roles:</p>
+<ul>
+  <li><strong>Plant Operations Manager (e.g., Aditya Sen - <code>tata_operator</code>)</strong>: Oversees plant operations, registers incoming sales orders, monitors compliance tables, adjusts inventory levels during emergencies, and manages help desk tickets.</li>
+  <li><strong>Supply Chain Planner (e.g., Rajesh Kumar - <code>operator1</code>)</strong>: Reviews compliance forecasts, adjusts yard inventories, collaborates on stock shortages, and responds to help desk messages.</li>
+</ul>
+<h2 id="1-7-organization-of-the-dissertation">1.7 Organization of the Dissertation</h2>
+<p>The remainder of this document is organized as follows: Chapter 2 discusses the literature survey and feasibility; Chapter 3 specifies functional and non-functional requirements; Chapter 4 displays the system architectures, DFDs, and ERDs; Chapter 5 formulates the algorithmic logic and mathematical equations; Chapter 6 details implementation; Chapter 7 presents the test suites; Chapter 8 walks through the screen interfaces; and Chapter 9 concludes with limitations and future roadmaps.</p>
+<p>---</p>
+<h1 id="chapter-2-literature-survey-feasibility-analysis" class="chapter-title">Chapter 2: Literature Survey & Feasibility Analysis</h1>
+<h2 id="2-1-evolution-of-digital-supply-chain-management-scm">2.1 Evolution of Digital Supply Chain Management (SCM)</h2>
+<p>Supply chain management has transitioned from manual record-keeping to computer-aided MRP (Material Requirements Planning) systems, and subsequently to massive ERP (Enterprise Resource Planning) systems. Modern SCM focuses on real-time visibility, automated event management, and predictive scheduling. </p>
+<h2 id="2-2-challenges-in-steel-scm-and-yard-logistics">2.2 Challenges in Steel SCM and Yard Logistics</h2>
+<p>Steel manufacturing yards are highly dynamic. Product variations (hot-rolled, cold-rolled, plates, structural bars) require specific storage conditions and tracking mechanisms. The physical size of steel materials means that mismatching inventory leads to massive operational friction, as moving heavy coils to locate stock is expensive and time-consuming.</p>
+<h2 id="2-3-evaluation-of-modern-scm-frameworks">2.3 Evaluation of Modern SCM Frameworks</h2>
+<p>Monolithic ERP systems (such as SAP or Oracle SCM) offer high security but are notoriously rigid, slow, and expensive to customize for localized plant operations. Micro-portals developed using lightweight frameworks (like the MERN stack) act as agile overlays, pulling data from core databases to provide operational dashboards for front-line managers.</p>
+<h2 id="2-4-technology-stack-selection-rationale">2.4 Technology Stack Selection Rationale</h2>
+<p>To achieve high responsiveness and ease of deployment, the MERN stack was chosen:</p>
+<ul>
+  <li><strong>MongoDB</strong>: A document-oriented NoSQL database that stores data in flexible JSON-like documents, facilitating easy updates to inventory structures and message schemas.</li>
+  <li><strong>Express.js & Node.js</strong>: Express provides a minimalist routing framework on top of Node's non-blocking I/O model, ensuring rapid API responses.</li>
+  <li><strong>React (Vite)</strong>: A component-based frontend library that enables a responsive, single-page application (SPA) experience with live rendering.</li>
+  <li><strong>Tailwind CSS</strong>: Utility-first CSS framework enabling dynamic dark/light theme switching, responsive design, and rapid UI development.</li>
+</ul>
+<h2 id="2-5-feasibility-study">2.5 Feasibility Study</h2>
+<ul>
+  <li><strong>Technical Feasibility</strong>: The team has extensive knowledge of JavaScript, React, and Node.js. The technologies are open-source and widely documented, making integration highly feasible.</li>
+  <li><strong>Economic Feasibility</strong>: No expensive enterprise licenses are required. MongoDB, Node.js, and React are free. Operationally, the system minimizes stock mismatches, reducing delivery delays and saving administrative labor costs.</li>
+  <li><strong>Operational Feasibility</strong>: The interface is designed to be intuitive, requiring minimal training. Autofill credentials and easy dashboard widgets ensure high adoption rates among plant personnel.</li>
+</ul>
+<p>---</p>
+<h1 id="chapter-3-system-requirements-analysis" class="chapter-title">Chapter 3: System Requirements Analysis</h1>
+<h2 id="3-1-functional-requirements-specification">3.1 Functional Requirements Specification</h2>
+<ol>
+  <li><strong>User Authentication</strong>: Secure login interface validating credentials against a hashed database password using bcrypt. JWT token creation and storage in browser state.</li>
+  <li><strong>Sales Order Placement</strong>: Intuitive form to register order ID, customer ID, SKU product code, and demand tonnage. Includes live stock validation checking.</li>
+  <li><strong>Inventory Management</strong>: Tabular view of available SKU quantities, allowing authorized managers to execute manual, emergency replenishments.</li>
+  <li><strong>Delivery Compliance Calculations</strong>: Automated calculation of complied versus delayed stock quantities and expected delivery dates.</li>
+  <li><strong>Help Desk Portal</strong>: Ticket creation system with text inputs, conversational replies, and status indicators (<code>open</code>, <code>replied</code>, <code>closed</code>).</li>
+  <li><strong>Automatic Email Dispatch</strong>: Generation of detailed HTML order confirmations and compliance summaries, emailed to the operator upon order entry.</li>
+</ol>
+<h2 id="3-2-non-functional-requirements-specification">3.2 Non-Functional Requirements Specification</h2>
+<ul>
+  <li><strong>Performance</strong>: Compliance calculation latency must remain under 50ms.</li>
+  <li><strong>Security</strong>: Password storage must be hashed using bcrypt with salt rounds of 10. API endpoints must be protected using JWT bearer tokens in the Authorization header.</li>
+  <li><strong>Scalability</strong>: Database schemas must support indexing on key search fields (e.g., <code>orderId</code>, <code>productCode</code>, <code>userId</code>).</li>
+  <li><strong>Usability (Theme Adaptability)</strong>: A theme switcher must toggle styles between light and dark modes with proper color contrast ratios.</li>
+</ul>
+<h2 id="3-3-hardware-requirements">3.3 Hardware Requirements</h2>
+<ul>
+  <li><strong>Development Workstation</strong>: </li>
+  <li>Processor: Intel Core i5/i7 or AMD Ryzen 5/7</li>
+  <li>RAM: 16 GB DDR4/DDR5</li>
+  <li>Storage: SSD with at least 50 GB free space</li>
+  <li><strong>Deployment Server (Target)</strong>:</li>
+  <li>Processor: Quad-Core Cloud Compute Engine</li>
+  <li>RAM: 8 GB</li>
+  <li>Network: 100 Mbps uplink/downlink</li>
+</ul>
+<h2 id="3-4-software-requirements">3.4 Software Requirements</h2>
+<ul>
+  <li><strong>Operating System</strong>: Windows 10/11 or Linux (Ubuntu 22.04 LTS)</li>
+  <li><strong>Runtime Environment</strong>: Node.js v18.x or above, npm v9.x or above</li>
+  <li><strong>Database Engine</strong>: MongoDB v6.x or above</li>
+  <li><strong>Frontend Build Tools</strong>: Vite v4.x+, React v18.x+</li>
+  <li><strong>Version Control</strong>: Git v2.40+</li>
+</ul>
+<h2 id="3-5-use-case-diagram-system-actor-mapping">3.5 Use Case Diagram & System Actor Mapping</h2>
+<pre class="mermaid">
+usecaseDiagram
+    actor "Plant Operator" as PO
+    actor "Supply Chain Planner" as SCP
+    
+    PO --&gt; (Login &amp; Authenticate)
+    PO --&gt; (Create Sales Order)
+    PO --&gt; (View Compliance Log)
+    PO --&gt; (Open Help Ticket)
+    PO --&gt; (Reply to Ticket)
+    PO --&gt; (Toggle UI Themes)
+    
+    SCP --&gt; (Login &amp; Authenticate)
+    SCP --&gt; (View &amp; Adjust Stock Inventory)
+    SCP --&gt; (View Compliance Log)
+    SCP --&gt; (Reply &amp; Close Tickets)
+    SCP --&gt; (Force Re-Audit Compliance)
+</pre>
+<p>---</p>
+<h1 id="chapter-4-architecture-design" class="chapter-title">Chapter 4: Architecture & Design</h1>
+<h2 id="4-1-system-architectural-topology">4.1 System Architectural Topology</h2>
+<p>The application follows a decoupled client-server architecture. The React client interacts with the Node/Express backend through a series of secure RESTful APIs, which query and manipulate a MongoDB database using Mongoose ORM.</p>
+<pre class="mermaid">
+graph LR
+    subgraph Client [React Frontend (Vite)]
+        UI[User Interface Dashboard]
+        API_Call[api.js client wrapper]
+        UI --&gt; API_Call
+    end
+    
+    subgraph Server [Node.js + Express Backend]
+        Auth[Auth Middleware]
+        Ctrl[Controllers Layer]
+        Router[Express Routes]
+        Email[Nodemailer Service]
+        
+        API_Call -- HTTPS REST (JWT Header) --&gt; Router
+        Router --&gt; Auth
+        Auth --&gt; Ctrl
+        Ctrl --&gt; Email
+    end
+    
+    subgraph DB [Database Layer]
+        MDB[(MongoDB Database)]
+        Ctrl -- Mongoose ORM --&gt; MDB
+    end
+    
+    classDef client fill:#f1f5f9,stroke:#3b82f6,stroke-width:2px;
+    classDef server fill:#e0f2fe,stroke:#0284c7,stroke-width:2px;
+    classDef db fill:#f0fdf4,stroke:#16a34a,stroke-width:2px;
+    
+    class Client client;
+    class Server server;
+    class DB db;
+</pre>
+<h2 id="4-2-data-flow-diagrams">4.2 Data Flow Diagrams</h2>
+<h3 id="dfd-level-0-system-context-diagram">DFD Level 0 (System Context Diagram)</h3>
+<p>The DFD Level 0 illustrates the flow of boundary data between the external system entities (Operators and Planners) and the core compliance system.</p>
+<pre class="mermaid">
+graph TD
+    A[Plant Operations Staff] -- Credentials / Sales Orders / Help Tickets --&gt; B[Tata Steel Compliance System]
+    B -- Compliance Reports / Inventory Lists / Email Notifications / Chat Replies --&gt; A
+</pre>
+<h3 id="dfd-level-1-process-decomposition-diagram">DFD Level 1 (Process Decomposition Diagram)</h3>
+<p>The DFD Level 1 details the core processes within the system, demonstrating how input data is processed, saved, and retrieved.</p>
+<pre class="mermaid">
+graph TD
+    User([Plant Operator]) --&gt;|Credentials| P1[1.0 Authenticate Operator]
+    P1 --&gt;|Query User| D1[(Users Collection)]
+    P1 --&gt;|JWT Token| User
+    
+    User --&gt;|Order Data| P2[2.0 Process Sales Order]
+    P2 --&gt;|Save Order| D2[(Orders Collection)]
+    
+    P2 --&gt;|Trigger Compliance| P3[3.0 Calculate Delivery Compliance]
+    P3 --&gt;|Query Inventory| D3[(Inventory Collection)]
+    P3 --&gt;|Save Result| D4[(Compliance Collection)]
+    
+    P3 --&gt;|Compliance Data| P4[4.0 Dispatch Notification Email]
+    P4 --&gt;|Mock / SMTP Email| User
+    
+    User --&gt;|Help Message| P5[5.0 Manage Help Desk tickets]
+    P5 --&gt;|Read / Write Thread| D5[(HelpMessages Collection)]
+</pre>
+<h3 id="dfd-level-2-detailed-compliance-engine-processing">DFD Level 2 (Detailed Compliance Engine Processing)</h3>
+<p>The DFD Level 2 provides a microscopic look at the compliance calculation subsystem.</p>
+<pre class="mermaid">
+graph TD
+    Order[Order Input] --&gt; GetInv[1. Query Stock by Product Code]
+    GetInv --&gt; CheckStock{2. Check Available Stock &gt;= Demand?}
+    
+    CheckStock -- Yes --&gt; FullyComplied[3. Set Complied = Demand, Shortage = 0, Status = Fully Complied]
+    CheckStock -- No --&gt; PartiallyComplied[4. Set Complied = Stock, Shortage = Demand - Stock, Status = Delayed]
+    
+    FullyComplied --&gt; CalcDate1[5. expectedDeliveryDate = Current Date + 2 Days]
+    PartiallyComplied --&gt; CalcDate2[6. expectedDeliveryDate = Current Date + 5 Days]
+    
+    CalcDate1 --&gt; SaveComp[7. Upsert Compliance Database]
+    CalcDate2 --&gt; SaveComp
+    SaveComp --&gt; ReturnResult[8. Return Compliance Object]
+</pre>
+<h2 id="4-3-database-schema-design-entity-relationship-diagram-erd">4.3 Database Schema Design & Entity Relationship Diagram (ERD)</h2>
+<h3 id="entity-relationship-diagram-erd">Entity Relationship Diagram (ERD)</h3>
+<p>The database structure is represented using Mongoose schemas. Relationships are modeled logically, linking user actions, orders, inventory levels, compliance outcomes, and communication logs.</p>
+<pre class="mermaid">
+erDiagram
+    USER {
+        string userId PK
+        string password
+        string name
+        string phone
+        string email
+        string department
+        string role
+    }
+    INVENTORY {
+        string productCode PK
+        string productName
+        number availableQuantity
+        string unit
+    }
+    ORDER {
+        string orderId PK
+        string customerId
+        string productCode FK
+        number demandQuantity
+    }
+    DELIVERY_COMPLIANCE {
+        string orderId PK, FK
+        string customerId
+        string productCode FK
+        number demandQuantity
+        number availableQuantity
+        number compliedQty
+        number delayQty
+        string status
+        date expectedDeliveryDate
+    }
+    HELP_MESSAGE {
+        objectId id PK
+        string fromUserId FK
+        string fromUserName
+        string subject
+        string message
+        string status
+        array replies
+    }
+    
+    USER ||--o{ ORDER : registers
+    ORDER ||--|| DELIVERY_COMPLIANCE : generates
+    INVENTORY ||--o{ ORDER : matches
+    USER ||--o{ HELP_MESSAGE : opens
+</pre>
+<h3 id="detailed-schema-data-dictionaries">Detailed Schema Data Dictionaries</h3>
+<h4 id="1-users-collection-code-user-code-model">1. Users Collection (<code>User</code> Model)</h4>
+<p>Represents the plant operating personnel. Passwords are encrypted before storing in the database.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+  <th>Field Name</th>
+  <th>Data Type</th>
+  <th>Key Type</th>
+  <th>Required</th>
+  <th>Constraints / Defaults</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>_id</code></td>
+  <td>ObjectId</td>
+  <td>PK</td>
+  <td>Yes</td>
+  <td>Auto-generated</td>
+  <td>Internal MongoDB reference</td>
+</tr>
+<tr>
+  <td><code>userId</code></td>
+  <td>String</td>
+  <td>Unique</td>
+  <td>Yes</td>
+  <td>Trimmed, unique</td>
+  <td>Unique logon handle (e.g., <code>tata_operator</code>)</td>
+</tr>
+<tr>
+  <td><code>password</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Hashed (bcrypt)</td>
+  <td>Encrypted credential string</td>
+</tr>
+<tr>
+  <td><code>name</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>-</td>
+  <td>Display name of the employee</td>
+</tr>
+<tr>
+  <td><code>phone</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Trimmed</td>
+  <td>Contact mobile number</td>
+</tr>
+<tr>
+  <td><code>email</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>No</td>
+  <td>Lowercase, default <code>''</code></td>
+  <td>User corporate email</td>
+</tr>
+<tr>
+  <td><code>department</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>No</td>
+  <td>Default <code>'Operations'</code></td>
+  <td>Employee department grouping</td>
+</tr>
+<tr>
+  <td><code>role</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>No</td>
+  <td>Default <code>'Industrial Operator'</code></td>
+  <td>Employee role (e.g., Plant Operations Manager)</td>
+</tr>
+<tr>
+  <td><code>createdAt</code></td>
+  <td>Date</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Timestamp</td>
+  <td>Generation datetime</td>
+</tr>
+<tr>
+  <td><code>updatedAt</code></td>
+  <td>Date</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Timestamp</td>
+  <td>Modification datetime</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2-inventory-collection-code-inventory-code-model">2. Inventory Collection (<code>Inventory</code> Model)</h4>
+<p>Stores stock level data for steel SKUs kept in physical yards.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+  <th>Field Name</th>
+  <th>Data Type</th>
+  <th>Key Type</th>
+  <th>Required</th>
+  <th>Constraints / Defaults</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>_id</code></td>
+  <td>ObjectId</td>
+  <td>PK</td>
+  <td>Yes</td>
+  <td>Auto-generated</td>
+  <td>Internal MongoDB reference</td>
+</tr>
+<tr>
+  <td><code>productCode</code></td>
+  <td>String</td>
+  <td>Unique</td>
+  <td>Yes</td>
+  <td>Uppercase, trimmed</td>
+  <td>Unique SKU identifier (e.g., <code>TATA-HR-001</code>)</td>
+</tr>
+<tr>
+  <td><code>availableQuantity</code></td>
+  <td>Number</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Minimum 0, default 0</td>
+  <td>Metric tons available in yard</td>
+</tr>
+<tr>
+  <td><code>productName</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>-</td>
+  <td>Human-readable name of SKU</td>
+</tr>
+<tr>
+  <td><code>unit</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Default <code>'tons'</code></td>
+  <td>Measurement unit</td>
+</tr>
+<tr>
+  <td><code>createdAt</code></td>
+  <td>Date</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Timestamp</td>
+  <td>Database registration</td>
+</tr>
+<tr>
+  <td><code>updatedAt</code></td>
+  <td>Date</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Timestamp</td>
+  <td>Last modified time</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="3-orders-collection-code-order-code-model">3. Orders Collection (<code>Order</code> Model)</h4>
+<p>Logs details of registered customer sales orders.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+  <th>Field Name</th>
+  <th>Data Type</th>
+  <th>Key Type</th>
+  <th>Required</th>
+  <th>Constraints / Defaults</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>_id</code></td>
+  <td>ObjectId</td>
+  <td>PK</td>
+  <td>Yes</td>
+  <td>Auto-generated</td>
+  <td>Internal MongoDB reference</td>
+</tr>
+<tr>
+  <td><code>orderId</code></td>
+  <td>String</td>
+  <td>Unique</td>
+  <td>Yes</td>
+  <td>Uppercase, trimmed</td>
+  <td>Unique sales order ID (e.g., <code>ORD-001</code>)</td>
+</tr>
+<tr>
+  <td><code>customerId</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Uppercase, trimmed</td>
+  <td>Customer account identifier</td>
+</tr>
+<tr>
+  <td><code>productCode</code></td>
+  <td>String</td>
+  <td>FK</td>
+  <td>Yes</td>
+  <td>Uppercase, trimmed</td>
+  <td>Target steel SKU ordered</td>
+</tr>
+<tr>
+  <td><code>demandQuantity</code></td>
+  <td>Number</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Minimum 0.1</td>
+  <td>Quantity requested (tons)</td>
+</tr>
+<tr>
+  <td><code>createdAt</code></td>
+  <td>Date</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Timestamp</td>
+  <td>Creation datetime</td>
+</tr>
+<tr>
+  <td><code>updatedAt</code></td>
+  <td>Date</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Timestamp</td>
+  <td>Last modified</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="4-delivery-compliance-collection-code-deliverycompliance-code-model">4. Delivery Compliance Collection (<code>DeliveryCompliance</code> Model)</h4>
+<p>Saves calculated compliance audits for registered orders.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+  <th>Field Name</th>
+  <th>Data Type</th>
+  <th>Key Type</th>
+  <th>Required</th>
+  <th>Constraints / Defaults</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>_id</code></td>
+  <td>ObjectId</td>
+  <td>PK</td>
+  <td>Yes</td>
+  <td>Auto-generated</td>
+  <td>Internal MongoDB reference</td>
+</tr>
+<tr>
+  <td><code>orderId</code></td>
+  <td>String</td>
+  <td>Unique</td>
+  <td>Yes</td>
+  <td>Uppercase, unique</td>
+  <td>Reference to core order ID</td>
+</tr>
+<tr>
+  <td><code>customerId</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Uppercase</td>
+  <td>Target customer identifier</td>
+</tr>
+<tr>
+  <td><code>productCode</code></td>
+  <td>String</td>
+  <td>FK</td>
+  <td>Yes</td>
+  <td>Uppercase</td>
+  <td>Target steel SKU</td>
+</tr>
+<tr>
+  <td><code>demandQuantity</code></td>
+  <td>Number</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Minimum 0</td>
+  <td>Ordered quantity (tons)</td>
+</tr>
+<tr>
+  <td><code>availableQuantity</code></td>
+  <td>Number</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Minimum 0</td>
+  <td>Stock at calculations</td>
+</tr>
+<tr>
+  <td><code>compliedQty</code></td>
+  <td>Number</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Minimum 0</td>
+  <td>Quantity fulfilled immediately</td>
+</tr>
+<tr>
+  <td><code>delayQty</code></td>
+  <td>Number</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Minimum 0</td>
+  <td>Shortage quantity to wait for resupply</td>
+</tr>
+<tr>
+  <td><code>status</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Enum: <code>Fully Complied</code>, <code>Partially Complied / Delayed</code></td>
+  <td>Overall delivery compliance status</td>
+</tr>
+<tr>
+  <td><code>expectedDeliveryDate</code></td>
+  <td>Date</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>-</td>
+  <td>Calculated shipment date</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="5-help-messages-collection-code-helpmessage-code-model">5. Help Messages Collection (<code>HelpMessage</code> Model)</h4>
+<p>Represents chat-style support threads opened by users.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+  <th>Field Name</th>
+  <th>Data Type</th>
+  <th>Key Type</th>
+  <th>Required</th>
+  <th>Constraints / Defaults</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>_id</code></td>
+  <td>ObjectId</td>
+  <td>PK</td>
+  <td>Yes</td>
+  <td>Auto-generated</td>
+  <td>Internal MongoDB reference</td>
+</tr>
+<tr>
+  <td><code>fromUserId</code></td>
+  <td>String</td>
+  <td>FK</td>
+  <td>Yes</td>
+  <td>-</td>
+  <td>User ID of the initiator</td>
+</tr>
+<tr>
+  <td><code>fromUserName</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>-</td>
+  <td>Name of the initiator</td>
+</tr>
+<tr>
+  <td><code>subject</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>-</td>
+  <td>Support ticket topic heading</td>
+</tr>
+<tr>
+  <td><code>message</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>-</td>
+  <td>Initial help text</td>
+</tr>
+<tr>
+  <td><code>status</code></td>
+  <td>String</td>
+  <td>-</td>
+  <td>Yes</td>
+  <td>Enum: <code>open</code>, <code>replied</code>, <code>closed</code>, default <code>open</code></td>
+  <td>Current workflow state of ticket</td>
+</tr>
+<tr>
+  <td><code>replies</code></td>
+  <td>Array</td>
+  <td>-</td>
+  <td>No</td>
+  <td>Array of <code>replySchema</code> objects</td>
+  <td>Embedded list of messages in chat thread</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code>replySchema</code> structure details:</p>
+<ul>
+  <li><code>fromOperator</code>: String (name of replying operator, if any)</li>
+  <li><code>fromUserId</code>: String (user ID of sender)</li>
+  <li><code>fromUserName</code>: String (display name of sender)</li>
+  <li><code>senderType</code>: String (enum: <code>user</code>, <code>operator</code>)</li>
+  <li><code>message</code>: String (text content)</li>
+  <li><code>createdAt</code>: Date (timestamp, default <code>Date.now</code>)</li>
+</ul>
+<h2 id="4-4-flowcharts-sequence-diagrams">4.4 Flowcharts & Sequence Diagrams</h2>
+<h3 id="sequence-diagram-order-creation-compliance-calculation-pipeline">Sequence Diagram: Order Creation & Compliance Calculation Pipeline</h3>
+<p>The following diagram demonstrates the step-by-step communication between the Client, API server, Database, and Email service during order entry.</p>
+<pre class="mermaid">
+sequenceDiagram
+    autonumber
+    actor Operator as Plant Operator
+    participant UI as Vite React Client
+    participant Server as Express API Server
+    participant DB as MongoDB Database
+    participant Email as Nodemailer Service
+    
+    Operator-&gt;&gt;UI: Fills Form &amp; Clicks "Submit Order"
+    UI-&gt;&gt;Server: HTTP POST /api/orders (JWT Token, JSON payload)
+    
+    Note over Server: Validate fields &amp; verify JWT token
+    Server-&gt;&gt;DB: Query Order.findOne({ orderId })
+    DB--&gt;&gt;Server: Return Null (doesn't exist)
+    
+    Server-&gt;&gt;DB: Query Inventory.findOne({ productCode })
+    alt Inventory SKU exists
+        DB--&gt;&gt;Server: Return Inventory Document
+    else Inventory SKU does not exist
+        Server-&gt;&gt;DB: Inventory.create({ productCode, availableQuantity: 0 })
+        DB--&gt;&gt;Server: Return New Inventory Document
+    end
+    
+    Note over Server: Execute Compliance calculation logic
+    Server-&gt;&gt;DB: Order.create({ ... })
+    DB--&gt;&gt;Server: Return Order Document
+    
+    Server-&gt;&gt;DB: DeliveryCompliance.findOneAndUpdate({ orderId }, complianceData, upsert)
+    DB--&gt;&gt;Server: Return Compliance Document
+    
+    opt Operator has email registered
+        Server-&gt;&gt;Email: sendOrderConfirmationEmail(email, name, order, compliance)
+        Note over Email: Compose HTML template
+        Email--&gt;&gt;Server: Email dispatched successfully
+    end
+    
+    Server--&gt;&gt;UI: HTTP 201 Created (Order &amp; Compliance Objects)
+    UI--&gt;&gt;Operator: Display success dialog &amp; update compliance logs
+</pre>
+<p>---</p>
+<h1 id="chapter-5-algorithmic-logic-mathematical-modelling" class="chapter-title">Chapter 5: Algorithmic Logic & Mathematical Modelling</h1>
+<h2 id="5-1-compliance-calculation-mathematical-equations">5.1 Compliance Calculation Mathematical Equations</h2>
+<p>Let the registered sales order contain:</p>
+<ul>
+  <li>$Q_{demand}$: Requested quantity of steel (demand tonnage).</li>
+  <li>$SKU_{target}$: Steel product SKU identifier code.</li>
+</ul>
+<p>Let the yard inventory contain:</p>
+<ul>
+  <li>$Q_{available}$: Metric tons of $SKU_{target}$ physically available in the yard at the time of order placement.</li>
+</ul>
+<p>The compliance engine calculates two output quantities:</p>
+<ol>
+  <li><strong>Complied Quantity ($Q_{complied}$)</strong>: The portion of the order demand that can be fulfilled immediately from the yard:</li>
+</ol>
+<p>   $$ Q_{complied} = \min(Q_{demand}, Q_{available}) $$</p>
+<ol>
+  <li><strong>Delay/Shortage Quantity ($Q_{delay}$)</strong>: The portion of the order demand that cannot be fulfilled immediately and must wait for production resupply:</li>
+</ol>
+<p>   $$ Q_{delay} = \max(0, Q_{demand} - Q_{available}) $$</p>
+<p>The overall <strong>Delivery Compliance Status ($S$)</strong> is determined as a binary classification:</p>
+<p>$$ S = \begin{cases} </p>
+<p>      \text{"Fully Complied"}, & \text{if } Q_{available} \ge Q_{demand} \\</p>
+<p>      \text{"Partially Complied / Delayed"}, & \text{if } Q_{available} < Q_{demand}</p>
+<p>   \end{cases}</p>
+<p>$$</p>
+<h2 id="5-2-lead-time-delivery-cap-calculations">5.2 Lead Time Delivery Cap Calculations</h2>
+<p>The expected delivery date ($D_{expected}$) is calculated by adding a delivery lead time ($T_{lead}$) measured in days to the order creation timestamp ($T_{creation}$):</p>
+<p>$$ D_{expected} = T_{creation} + T_{lead} $$</p>
+<p>To optimize inventory turnover and ensure logistical efficiency, lead times are calculated using a dynamic cap:</p>
+<ul>
+  <li>If stock is sufficient to meet demand ($S = \text{"Fully Complied"}$), the shipment is prioritized for immediate transport, resulting in a standard lead time:</li>
+</ul>
+<p>  $$ T_{lead} = 2 \text{ days} $$</p>
+<ul>
+  <li>If there is a stock shortage ($S = \text{"Partially Complied / Delayed"}$), a longer lead time is allocated to allow for plant resupply, capped at a maximum threshold:</li>
+</ul>
+<p>  $$ T_{lead} = 5 \text{ days} $$</p>
+<h2 id="5-3-core-pseudocode-algorithmic-design">5.3 Core Pseudocode & Algorithmic Design</h2>
+<h3 id="algorithm-1-delivery-compliance-calculation">Algorithm 1: Delivery Compliance Calculation</h3>
+<pre><code class="language-text">INPUT: Order object (orderId, customerId, productCode, demandQuantity)
+OUTPUT: DeliveryCompliance object saved to database
+
+BEGIN
+    1. Parse and clean inputs:
+       orderId &lt;- UPPERCASE(Order.orderId)
+       productCode &lt;- UPPERCASE(Order.productCode)
+       demandQuantity &lt;- FLOAT(Order.demandQuantity)
+       
+    2. Query Inventory database:
+       inventoryRecord &lt;- FIND inventory WHERE productCode == productCode
+       
+    3. IF inventoryRecord is NULL THEN
+           Create new Inventory record:
+               inventoryRecord.productCode &lt;- productCode
+               inventoryRecord.productName &lt;- "Product " + productCode
+               inventoryRecord.availableQuantity &lt;- 0
+       ENDIF
+       
+    4. Fetch stock count:
+       availableQuantity &lt;- inventoryRecord.availableQuantity
+       
+    5. Initialize calculation variables:
+       compliedQty &lt;- 0
+       delayQty &lt;- 0
+       status &lt;- "Fully Complied"
+       daysToAdd &lt;- 2
+       
+    6. IF availableQuantity &gt;= demandQuantity THEN
+           compliedQty &lt;- demandQuantity
+           delayQty &lt;- 0
+           status &lt;- "Fully Complied"
+           daysToAdd &lt;- 2
+       ELSE
+           compliedQty &lt;- availableQuantity
+           delayQty &lt;- demandQuantity - availableQuantity
+           status &lt;- "Partially Complied / Delayed"
+           daysToAdd &lt;- 5
+       ENDIF
+       
+    7. Calculate delivery date:
+       expectedDeliveryDate &lt;- CURRENT_DATE() + daysToAdd
+       
+    8. Prepare compliance record schema payload:
+       complianceData &lt;- {
+           orderId, customerId, productCode, demandQuantity,
+           availableQuantity, compliedQty, delayQty, status, expectedDeliveryDate
+       }
+       
+    9. Upsert compliance record into database:
+       savedRecord &lt;- UPSERT complianceRecord WHERE orderId == orderId WITH complianceData
+       
+    10. RETURN savedRecord
+END</code></pre>
+<h2 id="5-4-complexity-analysis">5.4 Complexity Analysis</h2>
+<ul>
+  <li><strong>Time Complexity</strong>:</li>
+  <li>The algorithm involves basic arithmetic checks and string parsing ($O(1)$ operations).</li>
+  <li>The dominant factor is querying the database for inventory levels and updating the compliance collection. Using indexes on <code>productCode</code> and <code>orderId</code> reduces query time complexity to $O(\log N)$, where $N$ is the number of records.</li>
+  <li>Overall computational time complexity: $O(\log N)$, ensuring rapid response times.</li>
+  <li><strong>Space Complexity</strong>:</li>
+  <li>A small, constant number of scalar variables (<code>compliedQty</code>, <code>delayQty</code>, <code>status</code>, etc.) are allocated in memory.</li>
+  <li>The generated JSON payload scales linearly with input size, representing $O(1)$ auxiliary space complexity.</li>
+</ul>
+<p>---</p>
+<h1 id="chapter-6-technical-implementation-details" class="chapter-title">Chapter 6: Technical Implementation Details</h1>
+<h2 id="6-1-backend-controller-router-breakdown">6.1 Backend Controller & Router Breakdown</h2>
+<p>The backend is structured around modular REST controllers:</p>
+<ul>
+  <li><strong><code>authController.js</code></strong>: Handles login requests, password verification via <code>bcrypt.compare()</code>, and JWT signing using a shared secret key.</li>
+  <li><strong><code>orderController.js</code></strong>: Validates order payload parameters, registers orders in MongoDB, triggers compliance evaluations, and invokes the email dispatcher.</li>
+  <li><strong><code>complianceController.js</code></strong>: Orchestrates compliance lookups and re-audits.</li>
+  <li><strong><code>inventoryController.js</code></strong>: Allows plant personnel to view stock levels and adjust available volumes.</li>
+  <li><strong><code>helpController.js</code></strong>: Standardizes the chat support pipeline, handling tickets, replies, and status transitions.</li>
+</ul>
+<h3 id="backend-routing-configurations-code-server-js-code-snippet">Backend Routing Configurations (<code>server.js</code> snippet)</h3>
+<pre><code class="language-javascript">// Base API maps
+app.use('/api', authRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/inventory', inventoryRoutes);
+app.use('/api/compliance', complianceRoutes);
+app.use('/api/help', helpRoutes);</code></pre>
+<h2 id="6-2-frontend-component-state-management-structure">6.2 Frontend Component & State Management Structure</h2>
+<p>The client application is built with React. Essential configuration components include:</p>
+<ul>
+  <li><strong><code>utils/api.js</code></strong>: Axios-like wrapper that automatically intercepts outbound requests to inject the JWT token from <code>localStorage</code> into the <code>Authorization</code> header.</li>
+  <li><strong><code>App.jsx</code></strong>: Handles routing boundaries and checks token validity on reload.</li>
+  <li><strong><code>components/Sidebar.jsx</code></strong>: Left-side navigation bar displaying user stats, quick links, and real-time open help ticket counters.</li>
+  <li><strong><code>pages/DashboardHome.jsx</code></strong>: Dashboard displaying mill KPIs, order timelines, and inventory alert indicators.</li>
+  <li><strong><code>pages/CreateOrder.jsx</code></strong>: Interactive order form with live stock checks.</li>
+  <li><strong><code>pages/InventoryList.jsx</code></strong>: Grid for managing yard stocks.</li>
+  <li><strong><code>pages/ComplianceList.jsx</code></strong>: Auditing grid displaying calculation results, complete with a manual "Re-Audit" trigger button.</li>
+  <li><strong><code>pages/HelpDesk.jsx</code></strong>: Real-time chat client interface.</li>
+</ul>
+<h2 id="6-3-nodemailer-configuration-email-simulator-layer">6.3 Nodemailer Configuration & Email Simulator Layer</h2>
+<p>The system uses Nodemailer to send email updates. If the environment variables for SMTP (<code>SMTP_HOST</code>, <code>SMTP_PORT</code>, <code>SMTP_USER</code>, <code>SMTP_PASS</code>) are configured, the system establishes a secure connection to dispatch emails. If these credentials are not set, it switches to local simulation mode:</p>
+<pre><code class="language-javascript">const hasSmtpConfig = process.env.SMTP_HOST &amp;&amp; process.env.SMTP_PORT &amp;&amp; process.env.SMTP_USER &amp;&amp; process.env.SMTP_PASS;
+let transporter;
+if (hasSmtpConfig) {
+  transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT),
+    secure: process.env.SMTP_SECURE === 'true',
+    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
+  });
+} else {
+  transporter = nodemailer.createTransport({ jsonTransport: true });
+}</code></pre>
+<p>This dual setup ensures seamless developer workflows and simplified offline testing, while remaining ready for instant deployment to cloud production servers.</p>
+<h2 id="6-4-help-desk-messaging-thread-processing">6.4 Help Desk Messaging Thread Processing</h2>
+<p>Help tickets are saved in the <code>HelpMessage</code> schema. Each reply contains a unique schema object appended to the <code>replies</code> array. This structure maintains message ordering and keeps the entire thread in a single document:</p>
+<pre><code class="language-javascript">helpMsg.replies.push({
+  fromOperator: isOperatorUser ? name : '',
+  fromUserId:   userId,
+  fromUserName: name,
+  senderType:   isOperatorUser ? 'operator' : 'user',
+  message:      replyText,
+});</code></pre>
+<p>---</p>
+<h1 id="chapter-7-verification-test-cases" class="chapter-title">Chapter 7: Verification & Test Cases</h1>
+<h2 id="7-1-testing-methodology">7.1 Testing Methodology</h2>
+<p>A combination of testing methodologies was employed to validate the system:</p>
+<ol>
+  <li><strong>Unit Testing</strong>: Verified individual schema validations, password hashing hooks, and date-addition helper operations.</li>
+  <li><strong>Integration Testing</strong>: Validated the controller loop, ensuring that calling <code>POST /api/orders</code> triggers database changes in both <code>orders</code> and <code>deliverycompliances</code> collections, while initiating email transmission.</li>
+  <li><strong>Boundary Value Testing</strong>: Inputting extreme and invalid stock levels (e.g., zero, negative, and large quantities) to verify the robustness of calculations.</li>
+  <li><strong>Security Testing</strong>: Simulating API calls without JWT headers to verify that routing shields intercept unauthorized attempts.</li>
+</ol>
+<h2 id="7-2-detailed-test-suites-cases">7.2 Detailed Test Suites & Cases</h2>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+  <th>Test ID</th>
+  <th>Module</th>
+  <th>Input Parameters</th>
+  <th>Expected Result</th>
+  <th>Actual Result</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>TC-001</td>
+  <td>Auth</td>
+  <td><code>{ userId: "operator1", password: "password123" }</code></td>
+  <td>HTTP 200, JWT token returned</td>
+  <td>Credentials validated, token returned</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-002</td>
+  <td>Auth</td>
+  <td><code>{ userId: "operator1", password: "wrong_pass" }</code></td>
+  <td>HTTP 401, error message</td>
+  <td>Password mismatch caught</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-003</td>
+  <td>Auth</td>
+  <td><code>{ userId: "invalid_user", password: "123" }</code></td>
+  <td>HTTP 401, error message</td>
+  <td>Nonexistent user caught</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-004</td>
+  <td>Order</td>
+  <td><code>{ orderId: "ORD-10", customerId: "C", productCode: "T-01", demandQuantity: 10 }</code></td>
+  <td>Order saved, compliance calculated</td>
+  <td>Order created, compliance upserted</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-005</td>
+  <td>Order</td>
+  <td><code>{ orderId: "ORD-10", ... }</code> (Duplicate Order ID)</td>
+  <td>HTTP 400, "Order already exists"</td>
+  <td>Duplicate ID rejected</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-006</td>
+  <td>Order</td>
+  <td><code>{ demandQuantity: -5 }</code> (Negative Quantity)</td>
+  <td>HTTP 400, "Demand quantity must be positive"</td>
+  <td>Validation caught negative input</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-007</td>
+  <td>Order</td>
+  <td><code>{ demandQuantity: 0 }</code> (Zero Quantity)</td>
+  <td>HTTP 400, validation error</td>
+  <td>Zero demand rejected</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-008</td>
+  <td>Engine</td>
+  <td>Demand = 100, Stock = 150 (SKU: <code>TATA-HR-001</code>)</td>
+  <td>Complied = 100, Delay = 0, status = "Fully Complied", Lead = 2 Days</td>
+  <td>Compliance fields calculated correctly</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-009</td>
+  <td>Engine</td>
+  <td>Demand = 200, Stock = 50 (SKU: <code>TATA-HR-001</code>)</td>
+  <td>Complied = 50, Delay = 150, status = "Partially Complied / Delayed", Lead = 5 Days</td>
+  <td>Shortage calculated, lead time set to 5 days</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-010</td>
+  <td>Engine</td>
+  <td>Demand = 80, Stock = 0</td>
+  <td>Complied = 0, Delay = 80, status = "Partially Complied / Delayed", Lead = 5 Days</td>
+  <td>Fulfillable set to 0, shortage = 80</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-011</td>
+  <td>Email</td>
+  <td>Order <code>ORD-10</code> compliance generated</td>
+  <td>system email simulator logs dispatch</td>
+  <td>Email generated, HTML body logs match</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-012</td>
+  <td>Email</td>
+  <td>Operator user with blank email</td>
+  <td>Warn and skip email dispatcher</td>
+  <td>Skipped gracefully, warning logged</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-013</td>
+  <td>Invent</td>
+  <td><code>PUT /api/inventory/TATA-HR-001</code> with <code>{ availableQuantity: 600 }</code></td>
+  <td>Stock updated to 600, HTTP 200</td>
+  <td>Stock adjusted successfully</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-014</td>
+  <td>Invent</td>
+  <td><code>PUT</code> with negative available quantity</td>
+  <td>HTTP 400, Validation error</td>
+  <td>Negative stock rejected</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-015</td>
+  <td>Help</td>
+  <td><code>POST /api/help</code> with subject and message</td>
+  <td>Ticket created, status = <code>open</code></td>
+  <td>Document created in MongoDB</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-016</td>
+  <td>Help</td>
+  <td><code>POST /api/help/:id/reply</code> from operator</td>
+  <td>Reply added, status = <code>replied</code></td>
+  <td>Reply object appended, status updated</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-017</td>
+  <td>Help</td>
+  <td><code>PATCH /api/help/:id/close</code></td>
+  <td>Ticket status = <code>closed</code></td>
+  <td>Status field updated in DB</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-018</td>
+  <td>Auth</td>
+  <td><code>GET /api/orders</code> without Authorization header</td>
+  <td>HTTP 401, "Not authorized, no token"</td>
+  <td>Access blocked by middleware</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-019</td>
+  <td>UI</td>
+  <td>Click theme toggle button</td>
+  <td>Tailwind classes adjust, <code>localStorage</code> updates</td>
+  <td>View colors flip instantly, state saved</td>
+  <td>PASSED</td>
+</tr>
+<tr>
+  <td>TC-020</td>
+  <td>UI</td>
+  <td>Mobile viewport width (375px)</td>
+  <td>Layout switches to vertical stack, sidebar collapse</td>
+  <td>Dashboard fits viewport without horizontal scroll</td>
+  <td>PASSED</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="7-3-security-audits-role-based-access-control-testing">7.3 Security Audits & Role-Based Access Control Testing</h2>
+<p>Endpoints under <code>/api/orders</code>, <code>/api/inventory</code>, and <code>/api/compliance</code> are protected by the <code>auth.js</code> middleware:</p>
+<pre><code class="language-javascript">const token = req.headers.authorization.split(' ')[1];
+const decoded = jwt.verify(token, process.env.JWT_SECRET);
+req.user = await User.findById(decoded.id).select('-password');</code></pre>
+<p>This process intercepts request handling before controllers execute. In testing, requests missing valid tokens consistently returned <code>401 Unauthorized</code>. Additionally, the re-audit action in the frontend interface was successfully restricted, rendering only for authorized users (e.g., <code>tata_operator</code> and <code>operator1</code>).</p>
+<h2 id="7-4-ui-responsive-testing-theme-aware-verification">7.4 UI Responsive Testing & Theme-Aware Verification</h2>
+<p>Layouts were tested across multiple screen resolutions:</p>
+<ul>
+  <li><strong>Large screens (>1200px)</strong>: Sidebar remains locked on the left; analytics cards align horizontally.</li>
+  <li><strong>Medium screens (768px - 1024px)</strong>: Columns stack cleanly; spacing adjusts.</li>
+  <li><strong>Small screens (<768px)</strong>: Sidebar shifts to an overlay; tables support horizontal scrolling to prevent layout breaking.</li>
+</ul>
+<p>Theme switching was validated by verifying that class modifiers (e.g., <code>dark:bg-slate-900</code>) update styling variables immediately upon user interaction.</p>
+<p>---</p>
+<h1 id="chapter-8-screen-walkthrough-user-operations-manual" class="chapter-title">Chapter 8: Screen Walkthrough & User Operations Manual</h1>
+<h2 id="8-1-landing-page-navigation">8.1 Landing Page & Navigation</h2>
+<p>Upon launching the client app, users land on a portal page showing system features. A clean top menu bar contains links to direct users to the login screen.</p>
+<h2 id="8-2-login-console">8.2 Login Console</h2>
+<p>The login panel provides operator credential input fields. It includes automated "autofill buttons" for development testing, allowing users to log in as Aditya Sen (<code>tata_operator</code>) or Rajesh Kumar (<code>operator1</code>) with a single click.</p>
+<h2 id="8-3-operational-dashboard">8.3 Operational Dashboard</h2>
+<p>The dashboard displays four key indicators:</p>
+<ul>
+  <li><strong>Total Orders Registered</strong>: Cumulative orders registered in the system.</li>
+  <li><strong>Immediate Compliance Rate</strong>: Percentage of orders marked as "Fully Complied".</li>
+  <li><strong>Total Yard Stock Depth</strong>: Aggregated tonnage across all active SKUs.</li>
+  <li><strong>Open Help Tickets</strong>: Count of active help requests.</li>
+</ul>
+<p>It also features a chronological timeline of recent compliance audits and a stock warning panel highlighting depleted SKUs.</p>
+<h2 id="8-4-sales-order-creation-console">8.4 Sales Order Creation Console</h2>
+<p>This console is used to register sales orders. It includes input fields for the Customer ID, Order ID, and SKU Product code. When a quantity is entered, the live stock validator queries current yard availability and displays a dynamic preview of the compliance status before the order is submitted.</p>
+<h2 id="8-5-inventory-management-console">8.5 Inventory Management Console</h2>
+<p>This interface displays a tabular view of all SKU stock records. Authorized planners can click "Emergency Replenish" to add stock to specific SKUs, which is updated immediately across the system.</p>
+<h2 id="8-6-delivery-compliance-audit-log">8.6 Delivery Compliance Audit Log</h2>
+<p>A comprehensive table displaying all compliance records. For each record, the log shows the ordered quantity, yard stock levels at creation, immediate complied quantity, delay quantity, calculated expected delivery date, and compliance status. Planners can trigger manual compliance recalculations for specific orders.</p>
+<h2 id="8-7-interactive-help-desk-chat-interface">8.7 Interactive Help Desk Chat Interface</h2>
+<p>The Help Desk page features a ticket-tracking panel. Operators and planners can select a ticket to view its details and conversational history. A message panel allows users to send replies, which are appended to the chat thread in real-time. Operators can close tickets once issues are resolved.</p>
+<p>---</p>
+<h1 id="chapter-9-conclusion-limitations-future-work" class="chapter-title">Chapter 9: Conclusion, Limitations & Future Work</h1>
+<h2 id="9-1-project-accomplishments">9.1 Project Accomplishments</h2>
+<p>The <strong>Automated Supply Chain Delivery Compliance Improvement System</strong> successfully addresses the core bottlenecks of steel plant inventory allocations:</p>
+<ul>
+  <li><strong>Instant Stock Checks</strong>: Integrates order creation with inventory checks, eliminating stock over-commitments.</li>
+  <li><strong>Automated Compliance Engine</strong>: Automates calculations for complied/delayed quantities and schedules delivery dates using dynamic shortage lead times.</li>
+  <li><strong>Proactive Email Alerts</strong>: Dispatches detailed HTML audit reports to operator emails upon order placement.</li>
+  <li><strong>Centralized Help Desk</strong>: Consolidates issue tracking and collaboration into structured conversational threads.</li>
+  <li><strong>Contrast-Compliant Theme Switcher</strong>: Ensures UI visibility in varying plant lighting conditions.</li>
+</ul>
+<h2 id="9-2-limitations-of-the-current-prototype">9.2 Limitations of the Current Prototype</h2>
+<ul>
+  <li><strong>Decoupled Database</strong>: Operates on a standalone database, requiring synchronization logic for plants using legacy SAP/ERP setups.</li>
+  <li><strong>Manual Adjustments</strong>: Replenishments are entered manually rather than being automated through weight-bridge sensor readings.</li>
+  <li><strong>Local Simulated Emailing</strong>: Defaults to mock logs unless external SMTP credentials are provided, requiring configuration before production launch.</li>
+</ul>
+<h2 id="9-3-future-technical-roadmap">9.3 Future Technical Roadmap</h2>
+<ul>
+  <li><strong>Real-time IoT Integrations</strong>: Connect yard storage weights directly to the inventory database using yard crane sensors.</li>
+  <li><strong>Predictive Analytics</strong>: Integrate machine learning models to forecast SKU shortages based on historic order patterns.</li>
+  <li><strong>Direct ERP Webhooks</strong>: Establish secure database webhooks for automatic sync with external ERP databases (e.g., SAP, Oracle).</li>
+</ul>
+<p>---</p>
+<h1 id="references-bibliography" class="chapter-title">References & Bibliography</h1>
+<ol>
+  <li><strong>Chopra, S., & Meindl, P. (2016).</strong> <em>Supply Chain Management: Strategy, Planning, and Operation.</em> Pearson Education.</li>
+  <li><strong>Elmasri, R., & Navathe, S. B. (2017).</strong> <em>Fundamentals of Database Systems (7th Edition).</em> Pearson.</li>
+  <li><strong>Flanagan, D. (2020).</strong> <em>JavaScript: The Definitive Guide (7th Edition).</em> O'Reilly Media.</li>
+  <li><strong>Mongoose Documentation.</strong> <em>Schemas, Models, and Query Middlewares.</em> https://mongoosejs.com/docs/</li>
+  <li><strong>Nodemailer Documentation.</strong> <em>SMTP Transports and Email Templates.</em> https://nodemailer.com/</li>
+  <li><strong>React Documentation.</strong> <em>State Management and Hooks API.</em> https://react.dev/</li>
+  <li><strong>Tailwind CSS Documentation.</strong> <em>Dark Mode Configuration & Responsive Utilities.</em> https://tailwindcss.com/docs</li>
+</ol>
+
+  </div>
+
+  <!-- PrismJS for syntax highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
